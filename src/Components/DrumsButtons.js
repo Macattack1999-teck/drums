@@ -11,8 +11,8 @@ export default () => {
   const { bank } = useSelector(mapState)
 
   const handleAudoKeyClicked = (sound) => {
-    const el = document.getElementById(sound.keyTrigger)
-    el.play();
+    const audio = new Audio(sound.url)
+    audio.play();
   }
 
   return (

@@ -13,13 +13,13 @@ export default function (state = initialState, action) {
         return {
           ...state,
           bankTwoActive: false,
-          bank: BankData[1]
+          bank: BankData[0]
         }
       } else {
         return {
           ...state,
           bankTwoActive: true,
-          bank: BankData[0]
+          bank: BankData[1]
         }
       }
     }
