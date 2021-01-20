@@ -1,0 +1,3 @@
+export const TOGGLE_POWER = "TOGGLE_POWER";
+export const UPDATE_DISPLAY_TEXT = "UPDATE_DISPLAY_TEXT";
+export const CHANGE_BANK = "CHANGE_BANK";

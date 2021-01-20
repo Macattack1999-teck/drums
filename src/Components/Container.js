@@ -3,9 +3,6 @@ import DrumsButtons from './DrumsButtons'
 import DrumsInterface from './DrumsInterface'
 
 export default () => {
-  // background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-  //       WebkitBackgroundClip: "text",
-  //       WebkitTextFillColor: "transparent"
   return (
     <div id="drum-machine" style={{ height: "100%", minHeight: "100vh", width: "100%", minWidth: "100vw", display: "flex", alignItems: "center", justifyContent: "center", background: "#1d1d1d" }}>
       <div style={{

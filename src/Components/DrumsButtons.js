@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { BankData } from '../Data/BankData'
 
 export default () => {
-  const handleKeyStrokeClick = (letter) => {
-    console.log(letter)
+  const [ soundBank, setSoundBank ] = useState(BankData[0])
+  const mapState = ({bankBeingUsed}) => ({
+    bankIdx: bankBeingUsed.bankIndex,
+  })
+
+  const { bankIdx } = useSelector(mapState)
+
+  useEffect(() => {
+    if (bankIdx) {
+      setSoundBank(BankData[bankIdx])
+    }
+  }, [bankIdx])
+
+  const handleAudoKeyClicked = (sound) => {
+    const el = document.getElementById(sound.keyTrigger)
+    el.play();
   }
 
   return (
@@ -16,176 +32,36 @@ export default () => {
       background: "#191919",
       borderRadius: "20px"
     }}>
-      <div
-        onClick={() => handleKeyStrokeClick('Q')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        Q
-      </div>
+      {
+        soundBank.map((sound) => {
+          return (
+            <div
+              onClick={() => handleAudoKeyClicked(sound)}
+              className="drum-pad clip"
+              style={{
+                width: "75px",
+                height: "75px",
+                backgroundColor: "#1b1b1b",
+                borderRadius: "5px", 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center", 
+                boxShadow: "#00BCD4 0px 0px 5px 1px",
+                cursor: "pointer",
+                background: "linear-gradient(45deg, #46efd5, #03A9F4)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent" 
+              }}>
+                {sound.keyTrigger}
 
-      <div
-        onClick={() => handleKeyStrokeClick('W')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        W
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('E')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        E
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('A')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        A
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('S')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        S
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('D')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        D
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('Z')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        Z
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('X')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        X
-      </div>
-
-      <div
-        onClick={() => handleKeyStrokeClick('C')}
-        className="drum-pad"
-        style={{
-          width: "75px",
-          height: "75px",
-          backgroundColor: "#1b1b1b",
-          borderRadius: "5px", 
-          display: "flex", 
-          alignItems: "center", 
-          justifyContent: "center", 
-          boxShadow: "#00BCD4 0px 0px 5px 1px",
-          background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent" 
-        }}>
-        C
-      </div>
+                <audio
+                  id={sound.keyTrigger} 
+                  src={sound.url}
+                />
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
