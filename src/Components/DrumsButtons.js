@@ -4,17 +4,11 @@ import { BankData } from '../Data/BankData'
 
 export default () => {
   const [ soundBank, setSoundBank ] = useState(BankData[0])
-  const mapState = ({bankBeingUsed}) => ({
-    bankIdx: bankBeingUsed.bankIndex,
+  const mapState = ({bankState}) => ({
+    bank: bankState.bank,
   })
 
-  const { bankIdx } = useSelector(mapState)
-
-  useEffect(() => {
-    if (bankIdx) {
-      setSoundBank(BankData[bankIdx])
-    }
-  }, [bankIdx])
+  const { bank } = useSelector(mapState)
 
   const handleAudoKeyClicked = (sound) => {
     const el = document.getElementById(sound.keyTrigger)
@@ -33,7 +27,7 @@ export default () => {
       borderRadius: "20px"
     }}>
       {
-        soundBank.map((sound) => {
+        bank.map((sound) => {
           return (
             <div
               onClick={() => handleAudoKeyClicked(sound)}

@@ -6,7 +6,7 @@ import powerReducer from './powerReducer'
 const rootReducer = combineReducers({
   power: powerReducer,
   interfaceDisplayText: interfaceDisplayReducer,
-  bankBeingUsed: bankReducer
+  bankState: bankReducer
 })
 
 export default rootReducer

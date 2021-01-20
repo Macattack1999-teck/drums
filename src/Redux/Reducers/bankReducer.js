@@ -1,21 +1,25 @@
+import { BankData } from "../../Data/BankData";
 import { CHANGE_BANK } from "../actionTypes";
 
 const initialState = {
-  bankIndex: 0
+  bank: BankData[0],
+  bankTwoActive: false
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case CHANGE_BANK: {
-      if (state.bank === 0) {
+      if (state.bankTwoActive) {
         return {
           ...state,
-          bankIndex: 1
+          bankTwoActive: false,
+          bank: BankData[1]
         }
-      } else if (state.bank === 1) {
+      } else {
         return {
           ...state,
-          bankIndex: 0
+          bankTwoActive: true,
+          bank: BankData[0]
         }
       }
     }
