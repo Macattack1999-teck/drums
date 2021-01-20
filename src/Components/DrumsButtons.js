@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { BankData } from '../Data/BankData'
 
 export default () => {
-  const [ soundBank, setSoundBank ] = useState(BankData[0])
   const mapState = ({bankState}) => ({
     bank: bankState.bank,
   })
@@ -14,6 +12,22 @@ export default () => {
     const audio = new Audio(sound.url)
     audio.play();
   }
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      const bankSoundThatMatchesKey = bank.filter((sound) => sound.keyTrigger === e.code.slice(3))
+      
+      if (bankSoundThatMatchesKey.length > 0) {
+        const soundUrl = bankSoundThatMatchesKey[0].url
+        const audio = new Audio(soundUrl)
+        audio.play();
+      }
+    }
+
+    window.addEventListener('keypress', (e) => handleKeyPress(e))
+
+    return window.removeEventListener('keypress', (e) => handleKeyPress(e))
+  }, [bank])
 
   return (
     <div style={{
