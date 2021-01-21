@@ -15,11 +15,23 @@ export default () => {
   }
 
   return (
-    <div onClick={handleChangingBank}>
-      {
-        bankTwoActive ? 
-       "ON" : "OFF"
-      }
+    <div onClick={handleChangingBank} className="center" style={{
+    display: "flex"
+  }}>
+    <div style={{
+      fontSize: "14px",
+      paddingRight: "20px",
+      display: "flex",
+      alignItems: "center",
+      color: "#00BCD4"
+    }}>
+      Bank Two
     </div>
+
+    <input
+      type="checkbox"
+      name=""
+    />
+  </div>
   )
 }

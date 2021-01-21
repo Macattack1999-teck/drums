@@ -16,7 +16,19 @@ export default () => {
   }
 
   return (
-    <div onClick={handleTogglingPower} className="center">
+    <div onClick={handleTogglingPower} className="center" style={{
+      display: "flex"
+    }}>
+      <div style={{
+        fontSize: "14px",
+        paddingRight: "20px",
+        display: "flex",
+        alignItems: "center",
+        color: "#00BCD4"
+      }}>
+        Power
+      </div>
+
       <input
         type="checkbox"
         name=""
