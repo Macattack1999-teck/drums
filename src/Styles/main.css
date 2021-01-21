@@ -1,0 +1,12 @@
+.drum-playing-effect {
+  animation-name: spin;
+  animation-duration: 100ms;
+  animation-iteration-count: 1;
+}
+
+@keyframes spin { 
+  100% {
+    background: #00BCD4;
+    color: #1d1d1d;
+  }
+}

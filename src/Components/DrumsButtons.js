@@ -18,8 +18,14 @@ export default () => {
       if (e) {
         const el = document.getElementById(e.code.slice(3))
         if (el !== null) {
+          const el2 = document.getElementById(`drum-pad-${e.code.slice(3)}`)
+          el2.classList.add("drum-playing-effect")
           const sound = new Audio(el.src)
           sound.play();
+
+          return setTimeout(() => {
+            el2.classList.toggle("drum-playing-effect")
+          }, 100)
         }
       }
     }
@@ -44,21 +50,19 @@ export default () => {
         bank.map((sound) => {
           return (
             <div
+              id={`drum-pad-${sound.keyTrigger}`}
               onClick={() => handleAudoKeyClicked(sound)}
               className="drum-pad clip"
               style={{
                 width: "75px",
                 height: "75px",
-                backgroundColor: "#1b1b1b",
                 borderRadius: "5px", 
                 display: "flex", 
                 alignItems: "center", 
                 justifyContent: "center", 
                 boxShadow: "#00BCD4 0px 0px 5px 1px",
                 cursor: "pointer",
-                background: "linear-gradient(45deg, #46efd5, #03A9F4)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent" 
+                color: "#00BCD4"
               }}>
                 {sound.keyTrigger}
 
