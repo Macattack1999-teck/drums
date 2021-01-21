@@ -9,8 +9,15 @@ export default () => {
   const { bank } = useSelector(mapState)
 
   const handleAudoKeyClicked = (sound) => {
+    const el2 = document.getElementById(`drum-pad-${sound.keyTrigger}`)
+    el2.classList.add("drum-playing-effect")
+
     const audio = new Audio(sound.url)
     audio.play();
+
+    return setTimeout(() => {
+      el2.classList.remove("drum-playing-effect")
+    }, 100)
   }
 
   useEffect(() => {
@@ -20,11 +27,12 @@ export default () => {
         if (el !== null) {
           const el2 = document.getElementById(`drum-pad-${e.code.slice(3)}`)
           el2.classList.add("drum-playing-effect")
+
           const sound = new Audio(el.src)
           sound.play();
 
           return setTimeout(() => {
-            el2.classList.toggle("drum-playing-effect")
+            el2.classList.remove("drum-playing-effect")
           }, 100)
         }
       }

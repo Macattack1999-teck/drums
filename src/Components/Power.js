@@ -16,14 +16,11 @@ export default () => {
   }
 
   return (
-    <div onClick={handleTogglingPower}>
-      {
-        power ? (
-          "on"
-        ) : (
-          "off"
-        )
-      }
+    <div onClick={handleTogglingPower} className="center">
+      <input
+        type="checkbox"
+        name=""
+      />
     </div>
   )
 }
