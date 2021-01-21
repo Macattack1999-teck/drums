@@ -15,12 +15,12 @@ export default () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      const bankSoundThatMatchesKey = bank.filter((sound) => sound.keyTrigger === e.code.slice(3))
-      
-      if (bankSoundThatMatchesKey.length > 0) {
-        const soundUrl = bankSoundThatMatchesKey[0].url
-        const audio = new Audio(soundUrl)
-        audio.play();
+      if (e) {
+        const el = document.getElementById(e.code.slice(3))
+        if (el !== null) {
+          const sound = new Audio(el.src)
+          sound.play();
+        }
       }
     }
 
