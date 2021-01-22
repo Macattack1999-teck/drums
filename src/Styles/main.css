@@ -152,74 +152,26 @@ input:checked[type="checkbox"]::after {
 }
 
 @keyframes drum-pad-power-on-flicker {
-  
   0% {
-    /* color: #5b5b5b; */
     opacity: 0.5;
-    /* opacity: 0; */
-    /* border: none; */
     color: #00BCD4;
   } 20% {
     opacity: 0;
-    /* color: #5b5b5b; */
     color: #00BCD4;
   } 40% {
     opacity: 1;
     color: #00BCD4;
-    /* Do nothing */
   } 60% {
     opacity: 0;
     color: #00BCD4;
-    /* color: #5b5b5b; */
-    /* color: #00BCD4; */
-    /* border: none; */
   } 70% {
     opacity: 0;
     color: #00BCD4;
   } 80% {
     opacity: 0.5;
     color: #00BCD4;
-    /* color: #5b5b5b; */
   } 100% {
     opacity: 1;
     color: #00BCD4;
   }
 }
-
-/* @keyframes drum-pad-power-on-flicker {
-  
-  12.5% {
-    /* color: #5b5b5b; */
-    /* color: #00BCD4; */
-    /* opacity: 0.5; */
-    /* opacity: 0; */
-    /* border: none; */
-  /* } 25% { */
-    /* opacity: 0; */
-    /* color: #5b5b5b; */
-    /* color: #00BCD4; */
-  /* } 37.5% { */
-    /* opacity: 0.5;
-    color: #00BCD4; */
-    /* Do nothing */
-  /* } 50% {
-    opacity: 1;
-    color: #00BCD4; */
-    /* color: #00BCD4; */
-    /* border: none; */
-  /* } 62.5% {
-    opacity: 0.5; */
-    /* color: #5b5b5b; */
-    /* color: #00BCD4;
-  } 75% { */
-    /* opacity: 0; */
-    /* color: #5b5b5b; */
-    /* color: #00BCD4;
-  } 87.5% {
-    opacity: 0.5;
-    color: #00BCD4;
-  } 100% {
-    opacity: 1;
-    color: #00BCD4;
-  }
-} */
