@@ -1,10 +1,10 @@
 .drum-playing-effect {
-  animation-name: spin;
+  animation-name: bounce;
   animation-duration: 100ms;
   animation-iteration-count: 1;
 }
 
-@keyframes spin { 
+@keyframes bounce { 
   100% {
     background: #00BCD4;
     color: #1d1d1d;
@@ -65,3 +65,161 @@ input:checked[type="checkbox"]::after {
   background: #63cdff;
   box-shadow: 0 0 5px #13b3ff, 0 0 15px #13b3ff;
 }
+
+.drum-pad-power-on {
+  position: relative;
+  animation-name: drum-pad-power-on-flicker;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-delay: 2s;
+  animation-fill-mode:forwards;
+}
+
+.drum-pad-power-on::before {
+  content: '';
+  position: absolute;
+  -webkit-transition : border 0s;
+  -moz-transition : border 0s;
+  -o-transition : border 0s;
+  transition : border 0s;
+  border-radius: 5px;
+  animation-name: drum-pad-power-on-first;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  width: 10px;
+  height: 0px;
+  top: 0;
+  left: 0;
+  border-top: 2px solid #00BCD4;
+  border-right: 2px solid transparent;
+
+}
+
+.drum-pad-power-on::after {
+  content: '';
+  position: absolute;
+  border-radius: 5px;
+  animation-name: drum-pad-power-on-second;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
+  width: 10px;
+  height: 1px;
+  bottom: -2px;
+  right: 0;
+  border-bottom: 2px solid transparent;
+}
+
+@keyframes drum-pad-power-on-first {
+ 50% {
+    width: 100%;
+    border-right: 2px solid transparent;
+  } 51% {
+    width: 100%;
+    height: 1px;
+    border-right: 2px solid #00BCD4;
+  } 100% {
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid #00BCD4;
+  } 0% {
+    opacity: 0;
+  }
+}
+
+@keyframes drum-pad-power-on-second {
+  0% {
+    border-bottom: 2px solid #00BCD4;
+  } 50% {
+    width: 100%;
+    border-bottom: 2px solid #00BCD4;
+    border-left: 2px solid transparent;
+  } 51% {
+    width: 100%;
+    height: 1px;
+    border-bottom: 2px solid #00BCD4;
+    border-left: 2px solid #00BCD4;
+  } 100% {
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #00BCD4;
+    border-left: 2px solid #00BCD4;
+  } 0% {
+    opacity: 0;
+  }
+}
+
+@keyframes drum-pad-power-on-flicker {
+  
+  0% {
+    /* color: #5b5b5b; */
+    opacity: 0.5;
+    /* opacity: 0; */
+    /* border: none; */
+    color: #00BCD4;
+  } 20% {
+    opacity: 0;
+    /* color: #5b5b5b; */
+    color: #00BCD4;
+  } 40% {
+    opacity: 1;
+    color: #00BCD4;
+    /* Do nothing */
+  } 60% {
+    opacity: 0;
+    color: #00BCD4;
+    /* color: #5b5b5b; */
+    /* color: #00BCD4; */
+    /* border: none; */
+  } 70% {
+    opacity: 0;
+    color: #00BCD4;
+  } 80% {
+    opacity: 0.5;
+    color: #00BCD4;
+    /* color: #5b5b5b; */
+  } 100% {
+    opacity: 1;
+    color: #00BCD4;
+  }
+}
+
+/* @keyframes drum-pad-power-on-flicker {
+  
+  12.5% {
+    /* color: #5b5b5b; */
+    /* color: #00BCD4; */
+    /* opacity: 0.5; */
+    /* opacity: 0; */
+    /* border: none; */
+  /* } 25% { */
+    /* opacity: 0; */
+    /* color: #5b5b5b; */
+    /* color: #00BCD4; */
+  /* } 37.5% { */
+    /* opacity: 0.5;
+    color: #00BCD4; */
+    /* Do nothing */
+  /* } 50% {
+    opacity: 1;
+    color: #00BCD4; */
+    /* color: #00BCD4; */
+    /* border: none; */
+  /* } 62.5% {
+    opacity: 0.5; */
+    /* color: #5b5b5b; */
+    /* color: #00BCD4;
+  } 75% { */
+    /* opacity: 0; */
+    /* color: #5b5b5b; */
+    /* color: #00BCD4;
+  } 87.5% {
+    opacity: 0.5;
+    color: #00BCD4;
+  } 100% {
+    opacity: 1;
+    color: #00BCD4;
+  }
+} */
