@@ -69,7 +69,7 @@ input:checked[type="checkbox"]::after {
 .drum-pad-power-on {
   position: relative;
   animation-name: drum-pad-power-on-flicker;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-iteration-count: 1;
   animation-delay: 2s;
   animation-fill-mode:forwards;
@@ -154,12 +154,29 @@ input:checked[type="checkbox"]::after {
 @keyframes drum-pad-power-on-flicker {
   0% {
     opacity: 0.5;
+    /* color: #00BCD4; */
+  } 50% {
+    opacity: 0;
+    color: #00BCD4;
+  } 100% {
+    opacity: 1;
+    box-shadow: #00BCD4 0px 0px 7px 2px;
+    /* background: #00BCD4; */
+    color: #00BCD4;
+  } 
+}
+
+@keyframes drum-pad-power-on-other-flicker {
+  0% {
+    opacity: 0.5;
     color: #00BCD4;
   } 20% {
     opacity: 0;
     color: #00BCD4;
   } 40% {
     opacity: 1;
+    box-shadow: #00BCD4 0px 0px 12px 2px;
+    /* background: #00BCD4; */
     color: #00BCD4;
   } 60% {
     opacity: 0;
@@ -170,6 +187,7 @@ input:checked[type="checkbox"]::after {
   } 80% {
     opacity: 0.5;
     color: #00BCD4;
+    box-shadow: #00BCD4 0px 0px 8px 2px;
   } 100% {
     opacity: 1;
     color: #00BCD4;
