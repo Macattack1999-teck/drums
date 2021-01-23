@@ -27,15 +27,18 @@ export default () => {
     const drumpadElem = document.getElementById(`drum-pad-${e.code.slice(3)}`)
     const drumpadSoundElem = document.getElementById(e.code.slice(3))
 
-    if (drumpadElem.classList.contains("drum-pad-power-on")) {
-      drumpadElem.classList.add("drum-playing-effect")
-
-      const sound = new Audio(drumpadSoundElem.src)
-      sound.play();
-
-      return setTimeout(() => {
-        drumpadElem.classList.remove("drum-playing-effect")
-      }, 100)
+    if (drumpadElem !== null && drumpadSoundElem !== null) {
+      console.log(drumpadElem.style)
+      if (drumpadElem.classList.contains("drum-pad-power-on")) {
+        drumpadElem.classList.add("drum-playing-effect")
+  
+        const sound = new Audio(drumpadSoundElem.src)
+        sound.play();
+  
+        return setTimeout(() => {
+          drumpadElem.classList.remove("drum-playing-effect")
+        }, 100)
+      }
     }
   }
 
@@ -46,7 +49,7 @@ export default () => {
   }, [])
 
   return (
-    <div style={{
+    <div id="drum-container" style={{
       display: "grid",
       gridTemplateColumns: "1fr 1fr 1fr",
       gridTemplateRows: "1fr 1fr 1fr",
@@ -54,7 +57,8 @@ export default () => {
       columnGap: "20px",
       padding: "40px",
       background: "#191919",
-      borderRadius: "20px"
+      borderRadius: "20px",
+      position: "relative"
     }}>
       {
         bank.map((sound) => {

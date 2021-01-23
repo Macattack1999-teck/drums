@@ -15,7 +15,8 @@ export default () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "space-evenly"
+      justifyContent: "space-evenly",
+      position: "relative"
     }}>
       <Power />
       <InterfaceDisplay />
