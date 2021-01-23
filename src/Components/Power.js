@@ -10,7 +10,7 @@ export default () => {
   }
 
   return (
-    <div onClick={handleTogglingPower} className="center" style={{
+    <div className="center" style={{
       display: "flex"
     }}>
       <div style={{
@@ -24,6 +24,7 @@ export default () => {
       </div>
 
       <input
+        onClick={handleTogglingPower} 
         type="checkbox"
         name=""
       />

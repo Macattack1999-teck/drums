@@ -12,6 +12,7 @@ export default () => {
   })
 
   const { bank, power } = useSelector(mapState)
+  const [keyPressEvent, setKeyPressEvent] = useState()
 
   const handleAudoKeyClicked = (sound) => {
     if (power) {
@@ -27,31 +28,26 @@ export default () => {
     }
   }
 
-  const handleKeyPress = (e) => {
-    if (e) {
-      console.log(power, 'KEY PRESSED')
-      if (power) {
-        const el = document.getElementById(e.code.slice(3))
-        if (el !== null) {
-          const el2 = document.getElementById(`drum-pad-${e.code.slice(3)}`)
-          el2.classList.add("drum-playing-effect")
+  const HandleKeyPress = (e) => {
+    const drumpadElem = document.getElementById(`drum-pad-${e.code.slice(3)}`)
+    const drumpadSoundElem = document.getElementById(e.code.slice(3))
 
-          const sound = new Audio(el.src)
-          sound.play();
+    if (drumpadElem.classList.contains("drum-pad-power-on")) {
+      drumpadElem.classList.add("drum-playing-effect")
 
-          return setTimeout(() => {
-            el2.classList.remove("drum-playing-effect")
-          }, 100)
-        }
-      }
+      const sound = new Audio(drumpadSoundElem.src)
+      sound.play();
+
+      return setTimeout(() => {
+        drumpadElem.classList.remove("drum-playing-effect")
+      }, 100)
     }
   }
 
-
   useEffect(() => {
-    window.addEventListener('keypress', (e) => handleKeyPress(e))
+    window.addEventListener('keypress', (e) => HandleKeyPress(e))
 
-    return window.removeEventListener('keypress', (e) => handleKeyPress(e))
+    return window.removeEventListener('keypress', (e) => HandleKeyPress(e))
   }, [])
 
   useEffect(() => {
