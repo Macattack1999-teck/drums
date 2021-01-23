@@ -1,18 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 export default () => {
-  const [styleProps, setStyleProps] = useState({
-    boxShadow: "#5b5b5b 0px 0px 5px 1px",
-    color: "#5b5b5b"
-  })
   const mapState = ({bankState, power}) => ({
     bank: bankState.bank,
     power: power.powerOn
   })
 
   const { bank, power } = useSelector(mapState)
-  const [keyPressEvent, setKeyPressEvent] = useState()
 
   const handleAudoKeyClicked = (sound) => {
     if (power) {
@@ -49,20 +44,6 @@ export default () => {
 
     return window.removeEventListener('keypress', (e) => HandleKeyPress(e))
   }, [])
-
-  useEffect(() => {
-    if (power) {
-      setStyleProps({
-        boxShadow: "#00BCD4 0px 0px 5px 1px",
-        color: "#00BCD4"
-      })
-    } else {
-      setStyleProps({
-        boxShadow: "#5b5b5b 0px 0px 5px 1px",
-        color: "#5b5b5b"
-      })
-    }
-  }, [power])
 
   return (
     <div style={{
