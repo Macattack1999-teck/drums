@@ -215,3 +215,49 @@ input:checked[type="checkbox"]::after {
   background:  #5b5b5b;
   margin-left: 2.5px;
 }
+
+
+/* DISPLAY POWER ON EFFECTS */
+.display-power-on {
+  animation-name: display-container-power-on;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  transition: 0.5s;
+}
+
+
+@keyframes display-container-power-on {
+  100% {
+    border: 2px solid #00BCD4;
+  }
+}
+
+.display-power-on::before {
+  animation-name: display-battery-port-power-on;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  transition: 0.5s;
+}
+
+@keyframes display-battery-port-power-on {
+  100% {
+    top: -24px;
+    border: 2px solid #00BCD4;
+  }
+}
+
+.display-power-on::after {
+  animation-name: display-battery-port-wire-power-on;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+  transition: 0.5s;
+}
+
+@keyframes display-battery-port-wire-power-on {
+  100% {
+    background: #00BCD4;
+  }
+}
