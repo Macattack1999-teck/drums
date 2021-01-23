@@ -4,6 +4,12 @@ import { togglePower } from '../Redux/Actions/powerAction';
 
 export default () => {
   const dispatch = useDispatch();
+  const mapState = ({bankState, power}) => ({
+    bank: bankState.bank,
+    power: power.powerOn
+  })
+
+  const { power } = useSelector(mapState)
   
   const handleTogglingPower = () => {
     dispatch(togglePower())
@@ -18,7 +24,7 @@ export default () => {
         paddingRight: "20px",
         display: "flex",
         alignItems: "center",
-        color: "#00BCD4"
+        color: "#5b5b5b"
       }}>
         Power
       </div>

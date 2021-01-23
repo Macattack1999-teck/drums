@@ -58,7 +58,8 @@ export default () => {
       padding: "40px",
       background: "#191919",
       borderRadius: "20px",
-      position: "relative"
+      position: "relative",
+      border: "1px solid #5b5b5b",
     }}>
       {
         bank.map((sound) => {

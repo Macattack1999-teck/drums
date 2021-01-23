@@ -1,15 +1,6 @@
 .drum-playing-effect {
-  animation-name: bounce;
-  animation-duration: 100ms;
-  animation-iteration-count: 1;
-}
-
-@keyframes bounce { 
-  100% {
-    background: #00BCD4;
-    color: #1d1d1d;
-    transform: scale(0.9);
-  }
+  transform: scale(0.9);
+  box-shadow: #00BCD4 0px 0px 13px 14px !important;
 }
 
 input[type="checkbox"] {
@@ -168,10 +159,12 @@ input:checked[type="checkbox"]::after {
 #display::before {
   content: '';
   position: absolute;
-  top: -20px;
+  top: -22px;
+  z-index: 1;
   width: 30%;
   height: 20px;
   background: #191919;
+  border: 1px solid #5b5b5b;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -179,9 +172,11 @@ input:checked[type="checkbox"]::after {
 #drum-container::before {
   content: '';
   position: absolute;
-  top: -20px;
+  top: -22px;
   width: 30%;
   height: 20px;
+  border: 1px solid #5b5b5b;
+  z-index: 1;
   justify-self: center;
   background: #191919;
   border-top-left-radius: 5px;
@@ -195,8 +190,6 @@ input:checked[type="checkbox"]::after {
   width: 5px;
   height: 20px;
   background: #5b5b5b;
-  /* border-top-left-radius: 5px;
-  border-top-right-radius: 5px; */
 }
 
 #drum-container::after {
@@ -208,8 +201,6 @@ input:checked[type="checkbox"]::after {
   justify-self: center;
   background: #5b5b5b;
   border-top-left-radius: 5px;
-  /* border-top-left-radius: 5px;
-  border-top-right-radius: 5px; */
 }
 
 #wire {

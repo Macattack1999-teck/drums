@@ -23,7 +23,7 @@ export default () => {
       paddingRight: "20px",
       display: "flex",
       alignItems: "center",
-      color: "#00BCD4"
+      color: "#5b5b5b"
     }}>
       Bank Two
     </div>
